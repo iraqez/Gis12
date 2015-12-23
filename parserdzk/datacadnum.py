@@ -20,7 +20,7 @@ def cnum(cadnum):
     try:
         resp.update((json.loads(requests.get(url=url_data, params=params_data).text)['data'])[0])
     except:
-        resp = str("Нет данных")
+        resp = None
     return resp
 
 if __name__ == '__main__':

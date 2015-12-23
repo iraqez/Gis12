@@ -1,6 +1,8 @@
 from parserdzk import datacadnum
 
-d = (
+
+
+d = [
     '6810100000:11:003:0101',
     '6810100000:11:003:0102',
     '6810100000:11:003:0103',
@@ -11,7 +13,19 @@ d = (
     '6810100000:11:003:0108',
     '6810100000:11:003:0109',
     '6810100000:11:003:0110',
-)
+]
+
+
 
 for i in d:
-    print(datacadnum.cnum(i))
+    try:
+        if datacadnum.cnum(i) != None:
+            print(datacadnum.cnum(i))
+        else:
+            raise TypeError
+    except TypeError:
+        pass
+#
+# d = [x+1 for x in d]
+#
+# lst = ['{0:04d}'.format(i) for i in range(1,10000)]
