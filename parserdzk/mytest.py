@@ -9,10 +9,12 @@ for zona in ['{0:02d}'.format(i) for i in range(1,20)]:
         for parcel in ['{0:04d}'.format(i) for i in range(1,200)]:
             d.append(str(koatuu+':'+zona+':'+kvartal+":"+parcel))
 
+cn = []
+
 for i in d:
     try:
         if datacadnum.cnum(i) != None:
-            print(datacadnum.cnum(i))
+            cn.append(datacadnum.cnum(i))
         else:
             raise TypeError
     except TypeError:
