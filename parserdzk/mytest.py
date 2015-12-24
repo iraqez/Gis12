@@ -16,5 +16,5 @@ for i in d:
         else:
             raise TypeError
     except TypeError:
-        print('Нет данных по участку: ' + i)
-        # pass
+        # print('Нет данных по участку: ' + i)
+        pass
