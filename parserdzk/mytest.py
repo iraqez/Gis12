@@ -14,7 +14,7 @@ cn = []
 for i in d:
     try:
         if datacadnum.cnum(i) != None:
-            cn.append(datacadnum.cnum(i))
+            print(datacadnum.cnum(i))
         else:
             raise TypeError
     except TypeError:
