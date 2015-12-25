@@ -31,6 +31,15 @@ class przem(models.Model):
     przem = models.TextField()
     type_dzk = models.CharField(max_length=5)
 
+class zona(models.Model):
+    koatuu = models.ForeignKey(ikk)
+    zona = models.CharField(max_length=2)
+
+class kvartal(models.Model):
+    koatuu = models.ForeignKey(ikk)
+    zona = models.ForeignKey(zona)
+    kvartal = models.CharField(max_length=3)
+
 class fromDzk(models.Model):
     cadnum = models.CharField(max_length=22)           # '6822789100:03:010:0064', # сам кадастровий номер
     koatuu = models.CharField(max_length=10)          # 6822789100, # КОАТУУ (можна примінити розшифровку для розгалудження, і парсингу найбільш необхідних районів в першу чергу)
