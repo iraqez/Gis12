@@ -5,9 +5,9 @@ koatuu = '6810100000'
 d = []
 
 def cadnum(koatuu):
-    for zona in ['{0:02d}'.format(i) for i in range(1,3)]:
+    for zona in ['{0:02d}'.format(i) for i in range(27,28)]:
         for kvartal in ['{0:03d}'.format(i) for i in range(1,3)]:
-            for parcel in ['{0:04d}'.format(i) for i in range(1,10)]:
+            for parcel in ['{0:04d}'.format(i) for i in range(1,50)]:
                 d.append(str(koatuu+':'+zona+':'+kvartal+":"+parcel))
 
     for i in d:
@@ -17,8 +17,6 @@ def cadnum(koatuu):
             else:
                 raise TypeError
         except TypeError:
-
-            # print('Нет данных по участку: ' + i)
             pass
 
 if __name__ == '__main__':
