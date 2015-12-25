@@ -13,7 +13,7 @@ class kadnums(models.Model):
     zona =   models.CharField(max_length=2)           # 3, # Кадастрова зона
     kvartal = models.CharField(max_length=3)           # 10, # Кадастровий квартал на якому розташована ділянка
     parcel =  models.CharField(max_length=4)          #  64, # Номер ділянки
-    purpose =  models.CharField(max_length=5)         #'2.1', # Призначення земельної ділянки по номеру(Десь я знаходив в законі України розписані, який номер для яких цілей)
+    use =  models.CharField(max_length=5)         #'2.1', # Призначення земельної ділянки по номеру(Десь я знаходив в законі України розписані, який номер для яких цілей)
     unit_area =  models.CharField(max_length=20)       # 'га.                      ', # Одиниці виміру
     area =  models.FloatField()            # '0.5143', # Площа ділянки
     ownershipcode = models.CharField(max_length=6)    # 0, # Код власника (поки побачив, що код 300 це державна власність)
@@ -37,7 +37,7 @@ class fromDzk(models.Model):
     zona =   models.CharField(max_length=2)           # 3, # Кадастрова зона
     kvartal = models.CharField(max_length=3)           # 10, # Кадастровий квартал на якому розташована ділянка
     parcel =  models.CharField(max_length=4)          #  64, # Номер ділянки
-    purpose =  models.CharField(max_length=30)         #'2.1', # Призначення земельної ділянки по номеру(Десь я знаходив в законі України розписані, який номер для яких цілей)
+    use =  models.CharField(max_length=5)         #'2.1', # Призначення земельної ділянки по номеру(Десь я знаходив в законі України розписані, який номер для яких цілей)
     unit_area =  models.CharField(max_length=25)       # 'га.                      ', # Одиниці виміру
     area =  models.FloatField()            # '0.5143', # Площа ділянки
     ownershipcode = models.CharField(max_length=5)    # 0, # Код власника (поки побачив, що код 300 це державна власність)
