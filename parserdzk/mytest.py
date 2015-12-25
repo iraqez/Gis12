@@ -4,20 +4,22 @@ koatuu = '6810100000'
 
 d = []
 
-#koatuu:zona:kvadrat:parcel
-for zona in ['{0:02d}'.format(i) for i in range(1,20)]:
-    for kvartal in ['{0:03d}'.format(i) for i in range(1,20)]:
-        for parcel in ['{0:04d}'.format(i) for i in range(1,200)]:
-            d.append(str(koatuu+':'+zona+':'+kvartal+":"+parcel))
+def cadnum(koatuu):
+    for zona in ['{0:02d}'.format(i) for i in range(1,20)]:
+        for kvartal in ['{0:03d}'.format(i) for i in range(1,20)]:
+            for parcel in ['{0:04d}'.format(i) for i in range(1,200)]:
+                d.append(str(koatuu+':'+zona+':'+kvartal+":"+parcel))
 
-cn = []
+    for i in d:
+        try:
+            if datacadnum.cnum(i) != None:
+                print(datacadnum.cnum(i))
+            else:
+                raise TypeError
+        except TypeError:
 
-for i in d:
-    try:
-        if datacadnum.cnum(i) != None:
-            print(datacadnum.cnum(i))
-        else:
-            raise TypeError
-    except TypeError:
-        # print('Нет данных по участку: ' + i)
-        pass
+            # print('Нет данных по участку: ' + i)
+            #pass
+
+if __name__ == '__main__':
+    print(cadnum(koatuu))
