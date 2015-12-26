@@ -23,6 +23,7 @@ def cadnum(koatuu):
         try:
             if datacadnum.cnum(i) != None:
                 print(datacadnum.cnum(i))
+                notnum = 0
             else:
                 raise TypeError
         except TypeError:
