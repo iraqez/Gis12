@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import json, requests
 url_point = 'http://212.26.144.110/kadastrova-karta/find-Parcel'
 url_data = 'http://212.26.144.110/kadastrova-karta/get-parcel-Info'

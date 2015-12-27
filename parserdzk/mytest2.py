@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from parserdzk import datacadnum
 
 koatuu = '6810100000'
