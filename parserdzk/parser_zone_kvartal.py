@@ -25,13 +25,14 @@ def cadnum(koatuu):
         try:
             if datacadnum.cnum(i) != None:
                 print(datacadnum.cnum(i))
-                next(parcels)
+                # next(parcels)
             else:
                 raise TypeError
         except TypeError:
             if notnum < 10:
                 notnum = notnum + 1
             else:
+                next(kvartals)
                 print(notnum)
 
 if __name__ == '__main__':
