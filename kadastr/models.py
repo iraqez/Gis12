@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.db import models
+#from django.db import models
 from django.contrib.gis.db import models
 
 class ikk(models.Model):
@@ -10,14 +10,15 @@ class ikk(models.Model):
 class kadnums(models.Model):
     cadnum = models.CharField(max_length=22)           # '6822789100:03:010:0064', # сам кадастровий номер
     koatuu = models.ForeignKey(ikk)           # 6822789100, # КОАТУУ (можна примінити розшифровку для розгалудження, і парсингу найбільш необхідних районів в першу чергу)
-    zona =   models.CharField(max_length=2)           # 3, # Кадастрова зона
-    kvartal = models.CharField(max_length=3)           # 10, # Кадастровий квартал на якому розташована ділянка
-    parcel =  models.CharField(max_length=4)          #  64, # Номер ділянки
+    zona = models.IntegerField()           # 3, # Кадастрова зона
+    kvartal = models.IntegerField()           # 10, # Кадастровий квартал на якому розташована ділянка
+    parcel =  models.IntegerField()          #  64, # Номер ділянки
     use =  models.CharField(max_length=5)         #'2.1', # Призначення земельної ділянки по номеру(Десь я знаходив в законі України розписані, який номер для яких цілей)
-    unit_area =  models.CharField(max_length=20)       # 'га.                      ', # Одиниці виміру
+    purpose = models.CharField(max_length=5)
+    unit_area =  models.CharField(max_length=3)       # 'га.                      ', # Одиниці виміру
     area =  models.FloatField()            # '0.5143', # Площа ділянки
-    ownershipcode = models.CharField(max_length=6)    # 0, # Код власника (поки побачив, що код 300 це державна власність)
-    id_office = models.CharField(max_length=6)         # 608 # тут я не зрозумів, що то, і нашо )))))
+    ownershipcode = models.CharField(max_length=4)    # 0, # Код власника (поки побачив, що код 300 це державна власність)
+    id_office = models.CharField(max_length=4)         # 608 # тут я не зрозумів, що то, і нашо )))))
 
 class kad_ext_points(models.Model):
     cadnum = models.ForeignKey(kadnums)
