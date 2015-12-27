@@ -2,7 +2,7 @@
 
 from parserdzk import datacadnum
 
-koatuu = '6810100000'
+koatuu = "6810100000"
 
 
 
@@ -25,14 +25,14 @@ def cadnum(koatuu):
         try:
             if datacadnum.cnum(i) != None:
                 print(datacadnum.cnum(i))
-                # next(parcels)
+                notnum = 0
             else:
                 raise TypeError
         except TypeError:
             if notnum < 10:
                 notnum = notnum + 1
             else:
-                next(kvartals)
+                # next(kvartals)
                 print(notnum)
 
 if __name__ == '__main__':

@@ -2,7 +2,7 @@
 
 from parserdzk import datacadnum
 
-koatuu = "681010000"
+koatuu = "6810100000"
 
 
 
@@ -10,29 +10,28 @@ def cadnum(koatuu):
     nums = [] #номера кадастрових ділянок
     notnum = 0 #лічильник неіснуючих ділянок підряд
     cnums = [] #список існуючих ділянок в КОАТУУ
+    kvartals = iter(['{0:03d}'.format(i) for i in range(1,3)])
 
     for zona in ['{0:02d}'.format(i) for i in range(1,3)]:
-        for kvartal in iter(['{0:03d}'.format(i) for i in range(1,3)]):
-            for parcel in iter(['{0:04d}'.format(i) for i in range(1,10)]):
-                cn = [koatuu,zona,kvartal,parcel]
-                nums.append(":".join(cn))
+        for kvartal in kvartals:
+            for parcel in iter(['{0:04d}'.format(i) for i in range(1,20)]):
+                # cn = [koatuu,zona,kvartal,parcel]
+                cc = ":".join([koatuu,zona,kvartal,parcel])
+                try:
+                    if datacadnum.cnum(cc) != None:
+                        cnums.append(datacadnum.cnum(cc))
+                        print(datacadnum.cnum(cc))
+                        print()
 
-    for i in nums:
-        try:
-            if datacadnum.cnum(i) != None:
-                cnums.append(datacadnum.cnum(i))
-                print(datacadnum.cnum(i))
-
-                notnum = 0
-            else:
-                raise TypeError
-        except TypeError:
-            if notnum < 20:
-                notnum += 1
-                print(notnum)
-            else:
-                pass
-                # next(kvartal)
+                        notnum = 0
+                    else:
+                        raise TypeError
+                except TypeError:
+                    if notnum < 3:
+                        notnum += 1
+                        print(notnum)
+                    else:
+                        pass
 
     return cnums
 
