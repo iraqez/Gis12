@@ -37,7 +37,6 @@ class zona(models.Model):
     zona = models.CharField(max_length=2)
 
 class kvartal(models.Model):
-    koatuu = models.ForeignKey(ikk)
     zona = models.ForeignKey(zona)
     kvartal = models.CharField(max_length=3)
 
