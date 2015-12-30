@@ -2,17 +2,16 @@
 
 from parserdzk import datacadnum
 
-koatuu = "6810100000"
+koatuu = "6821282200"
 
 
 
 def cadnum(koatuu):
     nums = []
-    zonakvart = []
 
     notnum = 0
     zones = iter('{0:02d}'.format(i) for i in range(1,100))
-    kvartals = iter('{0:03d}'.format(i) for i in range(1,1000))
+    kvartals = iter('{0:03d}'.format(i) for i in range(1,10))
     parcels = iter('{0:04d}'.format(i) for i in range(1,10))
 
     for zona in zones:
@@ -32,7 +31,6 @@ def cadnum(koatuu):
             if notnum < 10:
                 notnum = notnum + 1
             else:
-                # next(kvartals)
                 print(notnum)
 
 if __name__ == '__main__':
