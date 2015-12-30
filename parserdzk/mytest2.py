@@ -18,14 +18,11 @@ def cadnum(koatuu):
             cn = ':'.join([str(koatuu),'{0:02d}'.format(zona),'{0:03d}'.format(kvartal),'{0:04d}'.format(parcel)])
             if datacadnum.cnum(cn) != None:
                 print('Зона: ' + '{0:02d}'.format(zona) + ' для КОАТУУ: ' + koatuu)
-                #print(datacadnum.cnum(cn))
                 notnum = 0
-               # print('Нет зоны: ' + '{0:02d}'.format(zona))
                 break
 
             else:
                 if notnum < 10:
-   #                 print(notnum)
                     notnum += 1
                     continue
                 else:
