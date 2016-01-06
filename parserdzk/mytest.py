@@ -2,7 +2,7 @@
 
 from parserdzk import datacadnum
 
-koatuu = '6810100000'
+koatuu = '6821282200'
 
 
 
