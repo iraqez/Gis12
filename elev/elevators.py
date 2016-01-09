@@ -1,27 +1,42 @@
-    # cert:'4951',
-    # transportTypes:'train,autocar',
-    # lat:'51.3278320',lng:'28.8133440',
-    # elevatorAddress:'11104, вул. Леніна, буд. 72, м. Овруч, Житомирська обл.',
-    # capacity:'14000',shortName:'Овруцька реалбаза хлібопродуктів, ВАТ',
-    # fullName:'Відкрите акціонерне товариство \"Овруцька реалізаційна база хлібопродуктів\"',
-    # propertyType:'Приватний',
-    # propertyTypeCategory:'Інші',
-    # loadCapacity:'200',
-    # unloadCapacity:'380',
-    # odhiRegion:'Житомирська'
+# -*- coding: utf-8 -*-
+import pickle
 
-from slimit import ast
-from slimit.parser import Parser
-from slimit.visitors import nodevisitor
+def myElevators():
+    f = open(r'/home/iraqez/PycharmProjects/Gis12/elev/123', 'r')
+    s = f.readline()
+    f.close()
+    s = s.replace('\\"','"')
+    z = s.split('_')
+    l2 = []
+    for i in z:
+        l2.append(parsToDict(i))
 
-data = """
-_elevators['4951']={cert:'4951',transportTypes:'train,autocar',lat:'51.3278320',lng:'28.8133440',elevatorAddress:'11104, вул. Леніна, буд. 72, м. Овруч, Житомирська обл.',capacity:'14000',shortName:'Овруцька реалбаза хлібопродуктів, ВАТ',fullName:'Відкрите акціонерне товариство \"Овруцька реалізаційна база хлібопродуктів\"',propertyType:'Приватний',propertyTypeCategory:'Інші',loadCapacity:'200',unloadCapacity:'380',odhiRegion:'Житомирська'};
-"""
 
-parser = Parser()
-tree = parser.parse(data)
-fields = {getattr(node.left, 'value', ''): getattr(node.right, 'value', '')
-          for node in nodevisitor.visit(tree)
-          if isinstance(node, ast.Assign)}
+    return l2
 
-print(fields)
+def parsToDict(z):
+
+    from slimit import ast
+    from slimit.parser import Parser
+    from slimit.visitors import nodevisitor
+
+    data = z
+
+    parser = Parser()
+    tree = parser.parse(data)
+    fields = {getattr(node.left, 'value', ''): getattr(node.right, 'value', '')
+              for node in nodevisitor.visit(tree)
+              if isinstance(node, ast.Assign)}
+    fields.pop('')
+    if KeyError:
+        pass
+
+
+    for key, values in fields.items(): fields[key]=values[1:-1]
+    return fields
+
+if __name__ == '__main__':
+    files = open(r'/home/iraqez/PycharmProjects/Gis12/elev/pl', 'wb')
+    a = myElevators()
+    pickle._dump(a, files)
+    files.close()
