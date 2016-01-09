@@ -27,14 +27,15 @@ def cadnum(koatuu):
                 break
 
             else:
-                if notnum <= 100:
+                if notnum <= 10:
                     notnum += 1
                     print(cn, notnum)
                     continue
                 else:
                     print('Нет зоны: ' + '{0:02d}'.format(zona) + ' для КОАТУУ: ' + koatuu)
                     notnum=0
-                    break
+                    product
+                    continue
 
 
 
