@@ -26,4 +26,6 @@ def cnum(cadnum):
     return resp
 
 if __name__ == '__main__':
-    print(cnum(c))
+    cad = cnum(c)
+    print(type(cad))
+    print(cad)
