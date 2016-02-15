@@ -3,7 +3,7 @@ import psycopg2
 from parserdzk import datacadnum
 import csv
 
-whith open('')
+#whith open('')
 
 conn = psycopg2.connect("dbname='gis12' user='postgres' host='localhost' password='workfree'")
 cur = conn.cursor()
@@ -15,12 +15,12 @@ def cadnum(song):
     columns = song.keys()
     values = [song[column] for column in columns]
 
-    cur.execute(insert_statement, (AsIs(','.join(columns)), tuple(values)))
+    cur.execute(insert_nums, (AsIs(','.join(columns)), tuple(values)))
 
 
-conn.commit()
-cur.close()
-conn.close()
+    conn.commit()
+    cur.close()
+    conn.close()
 
 
 
