@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'gis12',
         'USER': 'gis12',
-        'PASSWORD': 'Agrogis2012',
+        'PASSWORD': 'workfree',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
